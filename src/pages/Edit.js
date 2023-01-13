@@ -6,10 +6,13 @@ import DiaryEditor from "../components/DiaryEditor";
 const Edit = () => {
   const navigate = useNavigate();
   const { id } = useParams();
-
   const [originData, setOriginData] = useState();
-
   const diaryList = useContext(DiaryStateContext);
+
+  useEffect(() => {
+    const titleElement = document.getElementsByTagName("title")[0];
+    titleElement.innerHTML = `감정일기장 - ${id}번 일기 수정`;
+  }, []);
 
   useEffect(() => {
     if (diaryList.length >= 1) {

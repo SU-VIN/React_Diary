@@ -1,8 +1,10 @@
+import React from "react";
 const EmotionItem = ({
   emotion_id,
   emotion_img,
   emotion_descript,
-  onClick,
+  onClick, //useState의 상태변화함수가 아니거나 useCallback으로 묶어둔 콜백이아니라면
+  //기본적으로 컴포넌트 렌더링 될때 다시 생성된다
   isSelected,
 }) => {
   return (
@@ -19,4 +21,4 @@ const EmotionItem = ({
   );
 };
 
-export default EmotionItem;
+export default React.memo(EmotionItem);
